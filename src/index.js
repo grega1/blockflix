@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GlobalStyle } from './global';
-import {App} from './App';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {Login} from './pages/Login';
+import {HomePage} from './pages/HomePage';
+import {Details} from './pages/Details';
+import {Inicial} from './pages/Inicial';
+import {Checkout} from './pages/Checkout';
+import {LastOrders} from './pages/LastOrders';
+import {ForZeroFor} from './pages/ForZeroFor';
 import './index.css';
 ReactDOM.render(
-  <React.StrictMode>
-   <GlobalStyle />
-   <App/>
-  </React.StrictMode>,
+  <BrowserRouter>
+        <Switch>
+      <Route path="/login" component={Login} />
+      <Route path="/filme/:id" component={Details} />
+      <Route path="/filmes" component={HomePage} />      
+      <Route path="/checkout" component={Checkout} />
+      <Route path="/orders" component={LastOrders} />      
+      <Route path="/" component={Inicial} exact />
+      <Route component={ForZeroFor} />
+    </Switch>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

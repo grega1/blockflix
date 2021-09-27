@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     --whiteIcons:#f8f8f8;
     --purple:#7838f8;
     --grey:#4e4e4e;
+    --greyInputs:#C4C4C4
     
   }
  *{
@@ -17,13 +18,10 @@ export const GlobalStyle = createGlobalStyle`
    padding:0;
    box-sizing: border-box;
  }
- h1,h2,h3,h4,h5,h6{
-   font-family: 'Montserrat', sans-serif;
- }
+
  body{
    background: var(--background);
-   -webkit-font-smoothing:antialiased; 
-   font-family: 'Poppins', sans-serif;
+   -webkit-font-smoothing:antialiased;    
  }
  //font-size = REM
  html {
@@ -40,5 +38,13 @@ export const GlobalStyle = createGlobalStyle`
  [disabled]{
    opacity: 0.6;
    cursor: not-allowed;
+ }
+ body,input,textarea, button {
+   font-family: 'Poppins', sans-serif;
+   font-weight: 400;
+ }
+ h1,h2,h3,h4,h5,h6, strong{
+   font-family: 'Montserrat', sans-serif;
+   font-weight:600;
  }
 `

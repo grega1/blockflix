@@ -14,8 +14,8 @@ export const Content = styled.div`
   button{
     font-size: 1rem;
     color: #fff;
-    background:transparent;    
-    border:none;
+    background: var(--purple);
+    border:0;
     border-radius: 0.3rem;
     width: 6rem;
     height:1.7rem;
