@@ -1,8 +1,11 @@
 import React from 'react';
-
-export function LastOrders(){
+import { Navbar } from '../../components/Navbar';
+import { Line } from '../../components/Lines'
+export function LastOrders() {
   return (
-    <>LastOrders
+    <>
+    <Navbar/>
+    <Line/>
     </>
   )
 }
