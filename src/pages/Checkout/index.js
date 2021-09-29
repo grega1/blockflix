@@ -20,8 +20,8 @@ export function Checkout() {
         <TotalList>
           <Title>TOTAL</Title>
           <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
+            <li><span>Esqudradão Suicida</span>
+            <span>R$86,40</span></li>
           </ListItens>
 
           <ListItens>

@@ -7,9 +7,9 @@ export function Card({filme, adicionarFilmeNoCarrinho}) {
  
   return (
     <CardBackground>
-      <MovieImg src={filme.poster_path} alt="cats" />
+      <MovieImg src={`https://image.tmdb.org/t/p/w300${filme.poster_path}`} alt="Capa do Filme" />
       <h3>{filme.title}</h3>
-      <div>
+      <div className="buttons">
         <DetailsBtn>
           <img src={Details} alt="seta na diagonal" />
         </DetailsBtn>
@@ -17,7 +17,6 @@ export function Card({filme, adicionarFilmeNoCarrinho}) {
           <img src={ShopCartWhite} alt="carrinho branco" />
           <p>R$ 86,40</p>
         </AddCart>
-
       </div>
     </CardBackground>
   )
