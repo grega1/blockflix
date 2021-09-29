@@ -12,6 +12,5 @@ export function HorizontalCard() {
       </ContentCard>
       <RemoveMovie><img src={RemoveImg} alt="X" /></RemoveMovie>
     </ContainerCard>
-    
   )
 }
