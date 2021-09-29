@@ -1,8 +1,15 @@
 import React from 'react';
+import { Navbar } from '../../components/Navbar';
+import { Line } from '../../components/Lines'
+import { HorizontalCard } from '../../components/CardHorizontal'
 
 export function Checkout(){
   return (
-    <> Checkout
+    <>
+      <Navbar />
+      <Line />
+      <HorizontalCard/>
+      <HorizontalCard/>
     </>
   )
 }

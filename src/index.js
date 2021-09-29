@@ -1,26 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {Login} from './pages/Login';
-import {HomePage} from './pages/HomePage';
-import {Details} from './pages/Details';
-import {Inicial} from './pages/Inicial';
-import {Checkout} from './pages/Checkout';
-import {LastOrders} from './pages/LastOrders';
-import {ForZeroFor} from './pages/ForZeroFor';
+import { FilmesContext } from './context/filmesContext';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Login } from './pages/Login';
+import { HomePage } from './pages/HomePage';
+import { Details } from './pages/Details';
+import { Inicial } from './pages/Inicial';
+import { Checkout } from './pages/Checkout';
+import { LastOrders } from './pages/LastOrders';
+import { ForZeroFor } from './pages/ForZeroFor';
+import { GlobalStyle } from './global';
 import './index.css';
 ReactDOM.render(
+  <FilmesContext.Provider>
   <BrowserRouter>
-        <Switch>
+    <GlobalStyle />
+    <Switch>
       <Route path="/login" component={Login} />
       <Route path="/filme/:id" component={Details} />
-      <Route path="/filmes" component={HomePage} />      
+      <Route path="/filmes" component={HomePage} />
       <Route path="/checkout" component={Checkout} />
-      <Route path="/orders" component={LastOrders} />      
+      <Route path="/orders" component={LastOrders} />
       <Route path="/" component={Inicial} exact />
       <Route component={ForZeroFor} />
     </Switch>
-  </BrowserRouter>,
+  </BrowserRouter>
+  </FilmesContext.Provider>,
   document.getElementById('root')
 );
 
