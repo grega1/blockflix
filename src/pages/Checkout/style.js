@@ -53,11 +53,6 @@ li{
     font-size:1.5rem;
   }
 }
-hr{
-    width:85%;
-    height:0.3rem;
-    background-color:rgba(78,78,78, 0.5)
-   }
 `
 export const Confirm = styled.button`
 background: var(--purple);
