@@ -1,5 +1,6 @@
 import React from 'react';
 import LogIn from '../../assets/LogIn.svg'
+import {Link} from 'react-router-dom'
 import { Header } from '../../components/Header'
 import { Line } from '../../components/Lines'
 import { Footer } from '../../components/Footer'
@@ -20,7 +21,7 @@ export function Login() {
          <label for="password">Password:</label>
          <input type="password" name="password"></input>
          </div>
-         <button><img src={LogIn} alt="login"/>Entrar</button>
+         <Link to='/filmes'><img src={LogIn} alt="login"/>Entrar</Link>
        </ModalLogin>        
       </CtaContainer>
       <Line />

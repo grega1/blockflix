@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom';
 export const CardBackground = styled.div`
   width:22.5rem; 
   height:34.5rem;
@@ -29,7 +30,7 @@ export const AddCart = styled.button`
   display: flex;
   align-items:center;
   justify-content:center;
-  gap:0.2rem;
+  gap:0.5rem;
   color:var(--white);
   width:11.563rem;
   height:2.5rem;
