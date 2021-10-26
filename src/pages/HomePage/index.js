@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from 'react';
-import { MoviesContext, movies } from '../../context/moviesContext';
+import { MoviesContext} from '../../context/moviesContext';
 
 import { Navbar } from '../../components/Navbar';
 import { Line } from '../../components/Lines'
@@ -10,21 +10,33 @@ import { Card } from '../../components/Card'
 import { MovieDiv, MovieLine, Container } from './style'
 
 export function HomePage({ addMovieToCart }) {
+  const { setAllMovies} = useContext(MoviesContext)
   const [moviesHighlight, setMoviesHighlight] = useState([])
   const [loading, setLoading] = useState(true);
   const [moviesFiltrados, setMoviesFiltrados] = useState([]);
   const [currentCategory, setCurrentCategory] = useState('');
-  useEffect(() => {
-    MoviesService.getFilteredMovies(currentCategory).then((results) => {
-      setMoviesFiltrados(results.slice(0, 9));
-    })
-  }, [currentCategory])
-  useEffect(() => {
-    MoviesService.getMovies().then((results) => {
-      setMoviesHighlight(results.slice(0, 3));
-      setLoading(false);
-    })
+  const [hasMovies, setHasMovies] = useState(false);
+  const [hasMoviesFiltered, setHasMoviesFiltered] = useState(false);
+
+  useEffect(() => {//moviesdestaque
+    if (!hasMovies) {
+      MoviesService.getMovies().then((results) => {
+        setMoviesHighlight(results.slice(0, 3));
+        setLoading(false);
+        setHasMovies(true);
+      })
+    }
   }, [moviesHighlight])
+
+  useEffect(() => {
+    if (!hasMoviesFiltered) {
+      MoviesService.getFilteredMovies(currentCategory).then((results) => {
+        setMoviesFiltrados(results.slice(0, 15));
+        setHasMoviesFiltered(true);
+        setAllMovies(results);
+      })
+    }
+  }, [currentCategory])
 
   return loading ? 'Carregando...' : (
     <MoviesContext.Consumer>
@@ -42,22 +54,21 @@ export function HomePage({ addMovieToCart }) {
             <div>
               <select onChange={(e) => {
                 setCurrentCategory(e.target.value)
-                console.log(e)
               }} name="movie" >
                 <option value="28">Ação</option>
-                <option value="saab">Saab</option>
+                <option value="27">Terror</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
               </select>
             </div>
-            <MovieDiv style={{ flexWrap: 'no-wrap' }}>
+            <MovieDiv style={{ flexWrap: 'no-wrap', marginBottom:'2rem'}}>
               {
-                moviesFiltrados.map((movie) => (<Card movie={movie} addMovieToCart/>))
+                moviesFiltrados.map((movie) => (<Card movie={movie} addMovieToCart />))
               }
             </MovieDiv>
           </Container>
-          {/* <Line />
-          <Footer /> */}
+          <Line />
+          <Footer />
 
         </>
       )

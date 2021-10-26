@@ -12,7 +12,7 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 width: 80%;
-height:39.5rem;
+min-height:39.5rem;
 gap:2rem;
 
 

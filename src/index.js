@@ -11,6 +11,7 @@ import { LastOrders } from './pages/LastOrders';
 import { ForZeroFor } from './pages/ForZeroFor';
 import { GlobalStyle } from './global';
 import './index.css';
+//Usar api pra pegar filme específico baseado no ID
 ReactDOM.render(
   <MoviesProvider >
     <BrowserRouter>

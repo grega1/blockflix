@@ -1,5 +1,6 @@
-import styled from 'styled-components'
+import styled,{css} from 'styled-components'
 import { Link } from 'react-router-dom';
+
 export const CardBackground = styled.div`
   width:22.5rem; 
   height:34.5rem;
@@ -37,9 +38,8 @@ export const AddCart = styled.button`
   font-size:1.5rem;
   background-color:var(--purple);
   border-radius: 0.3rem;
-
 `
-export const DetailsBtn = styled.button`
+export const DetailsBtn = styled(Link)`
   width:3rem;
   height:2.5rem;
   background-color:var(--grey);

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import RemoveImg from "../../assets/remove.svg"
 import { ContainerCard, ContentCard, CardMovieImg, CardText, RemoveMovie } from "./style"
+import { MoviesContext } from "../../context/moviesContext";
 
-export function HorizontalCard({name,price,id}) {
+
+export function HorizontalCard({ name, price, id }) {
+  const { movies, setMovies } = useContext(MoviesContext);
   return (
     <ContainerCard>
       <ContentCard>
@@ -10,7 +13,16 @@ export function HorizontalCard({name,price,id}) {
         <CardText>{name}</CardText>
         <CardText>R$ {price}</CardText>
       </ContentCard>
-      <RemoveMovie onClick={(id)=>{splice}}><img src={RemoveImg} alt="X" /></RemoveMovie>
+      <RemoveMovie onClick={
+        () => {
+          const filteredMovies = movies.filter(movie => movie.id !== id);
+          setMovies(filteredMovies);
+          
+        }
+      }><img src={RemoveImg} alt="X" /></RemoveMovie>
+      
     </ContainerCard>
+    
   )
+  
 }
