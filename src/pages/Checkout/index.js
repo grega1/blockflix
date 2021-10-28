@@ -6,7 +6,7 @@ import { HorizontalCard } from '../../components/CardHorizontal'
 import { Container, ContentCheckoutList, Title, TotalList, ListItens, Confirm } from './style'
 import { MoviesContext } from '../../context/moviesContext';
 export function Checkout() {
-  const { movies, orders, setOrders,setMovies,confirmOrder } = useContext(MoviesContext);  
+  const { movies, orders, setOrders, setMovies, confirmOrder } = useContext(MoviesContext);
 
   const history = useHistory();
 
@@ -25,35 +25,22 @@ export function Checkout() {
         </ContentCheckoutList>
         <TotalList>
           <Title>TOTAL</Title>
-          <ListItens>
+          {movies.map((movie) => (<ListItens>
             <li>
-              <span>Esqudradão Suicida</span>
-              <span>R$86,40</span></li>
-          </ListItens>
+              <span>{movie.original_title}</span>
+              <span>{movie.vote_average * 10}</span></li>
+          </ListItens>))}
 
-          <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
-          </ListItens>
+          < div > TOTAL: R${totalCost}</div>
 
-          <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
-          </ListItens>
-
-          <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
-          </ListItens>
-          <div>TOTAL: R${totalCost}</div>
-
-          <Confirm onClick={()=>{
+          <Confirm onClick={() => {
             confirmOrder({
-              data:new Date(),
-              total:totalCost,
-              movies});
+              data: new Date(),
+              total: totalCost,
+              movies
+            });
             history.push('/filmes')
-              setMovies([])
+            setMovies([])
 
           }}>Confirmar</Confirm>
 

@@ -13,20 +13,9 @@ export function LastOrders() {
       <Line />
       <Container>
         <Title>últimos pedidos</Title>
-        {console.log(orders)}
-        {orders.map(({ movies }) =>{
-          console.log(movies)
-          
-         return movies.map((movie) =>{ 
-           console.log(movie)
-           return <OrdersCard
-              name={movie.original_title}
-              total={movie.vote_average * 10}
-              key={movie.id}
-              id={movie.id}
-            />
-          })}
-        )}
+        {orders.map((order) => (
+          <OrdersCard order={order} key={order.data} />
+        ))}
       </Container>
     </>
   );

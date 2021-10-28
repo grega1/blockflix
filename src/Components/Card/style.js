@@ -2,6 +2,7 @@ import styled,{css} from 'styled-components'
 import { Link } from 'react-router-dom';
 
 export const CardBackground = styled.div`
+  border-radius:5px;
   width:22.5rem; 
   height:34.5rem;
   background-color:var(--greyInputs);
@@ -40,6 +41,9 @@ export const AddCart = styled.button`
   border-radius: 0.3rem;
 `
 export const DetailsBtn = styled(Link)`
+  display: flex;
+  align-items:center;
+  justify-content:center;
   width:3rem;
   height:2.5rem;
   background-color:var(--grey);

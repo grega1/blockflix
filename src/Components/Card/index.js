@@ -22,22 +22,8 @@ export function Card({ movie }) {
           <img src={Details} alt="seta na diagonal" />
         </DetailsBtn>
         <AddCart
-          disabled={movies.includes(movie)}
-
+          disabled={movies.some((e) => e.id === movie.id)}
           ref={cardRef}
-          // onLoad={() => {
-          //   if (movies.includes(movie)) {
-          //     console.log(movies.includes(movie));
-          //     cardRef.current.disabled = true;
-          //     console.log(movie)
-          //     console.log(movies)
-          //   } else {
-          //     console.log(movies.includes(movie));
-          //     cardRef.current.disabled = false;
-          //     console.log(movie)
-          //     console.log(movies)
-          //   }
-          // }}
           onClick={() => {
             addMovieToCart(movie);
             cardRef.current.disabled = true;

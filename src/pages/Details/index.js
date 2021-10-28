@@ -29,7 +29,7 @@ export function Details() {
           <MovieInfo>1h27min</MovieInfo>
         </DivFlex>
         <DivFlex>
-          <Sinopse>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit nunc gravida faucibus eget non. Sed posuere vulputate praesent non lectus enim, vel penatibus auctor. Non nibh tempus adipiscing diam eros, scelerisque neque. Faucibus ultrices porta hendrerit sed convallis dictum sit amet.</Sinopse>
+          <Sinopse>{movie.overview}</Sinopse>
         </DivFlex>
         <DivFlex isColumn>
           <MovieTitle>ATORES</MovieTitle>
