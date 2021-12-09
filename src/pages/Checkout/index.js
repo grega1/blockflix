@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import { Navbar } from '../../components/Navbar';
 import { Line } from '../../components/Lines'
 import { HorizontalCard } from '../../components/CardHorizontal'
 import { Container, ContentCheckoutList, Title, TotalList, ListItens, Confirm } from './style'
-
+import { MoviesContext } from '../../context/moviesContext';
 export function Checkout() {
+  const { movies, orders, setOrders, setMovies, confirmOrder } = useContext(MoviesContext);
+
+  const history = useHistory();
+
+  const totalCost = movies.reduce((previousValue, currentValue) => { return previousValue + currentValue.vote_average * 10 }, 0)
+
+
   return (
     <>
       <Navbar />
@@ -12,34 +20,29 @@ export function Checkout() {
       <Container>
         <ContentCheckoutList>
           <Title>CHECKOUT</Title>
-          <HorizontalCard />
-          <HorizontalCard />
-          <HorizontalCard />
-          <HorizontalCard />
+          {movies.map((movie) => (<HorizontalCard name={movie.original_title} price={movie.vote_average * 10} key={movie.id} id={movie.id} />))
+          }
         </ContentCheckoutList>
         <TotalList>
           <Title>TOTAL</Title>
-          <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
-          </ListItens>
+          {movies.map((movie) => (<ListItens>
+            <li>
+              <span>{movie.original_title}</span>
+              <span>{movie.vote_average * 10}</span></li>
+          </ListItens>))}
 
-          <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
-          </ListItens>
+          < div > TOTAL: R${totalCost}</div>
 
-          <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
-          </ListItens>
+          <Confirm onClick={() => {
+            confirmOrder({
+              data: new Date(),
+              total: totalCost,
+              movies
+            });
+            history.push('/filmes')
+            setMovies([])
 
-          <ListItens>
-            <span>Esqudradão Suicida</span>
-            <span>R$86,40</span>
-          </ListItens>
-
-          <Confirm>Confirmar  </Confirm>
+          }}>Confirmar</Confirm>
 
         </TotalList>
       </Container>
