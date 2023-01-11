@@ -51,14 +51,16 @@ export function HomePage({ addMovieToCart }) {
               }
               <MovieLine />
             </MovieDiv>
-            <div>
+            <div style={{display: 'flex', gap:'10px', padding:'10px 0'}}>
+              <h3 style={{color:'black'}}> Selecione por categoria:</h3>
               <select onChange={(e) => {
                 setCurrentCategory(e.target.value)
               }} name="movie" >
                 <option value="28">Ação</option>
                 <option value="27">Terror</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+                <option value="10749">Romance</option>
+                <option value="35">Comédia</option>
+                <option value="99">Documentário</option>
               </select>
             </div>
             <MovieDiv style={{ flexWrap: 'no-wrap', marginBottom:'2rem'}}>

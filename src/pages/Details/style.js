@@ -1,6 +1,7 @@
 import styled  from "styled-components";
 export const ContainerMovie = styled.div`
 display:flex;
+gap:2rem;
 flex-direction: column;
 justify-content:center;
 align-items:center;
@@ -13,8 +14,10 @@ display:flex;
 flex-direction:${props => props.isColumn ? 'column' : 'row'};
 `
 export const Banner = styled.img`
-width:90%;
-height:39.25rem;
+margin-top:2rem;
+width:500px;
+height:auto;
+object-fit: contain;
 `
 export const MovieTitle = styled.h2`
 font-size:2rem;
@@ -24,11 +27,17 @@ export const MovieInfo = styled.h3`
 font-size:1.5rem;
 color:var(--white);
 ` 
-export const Sinopse = styled.p`
+export const InfoText = styled.p`
 font-size:1rem;
 color:var(--white);
 `
 export const CardImg = styled.img`
 width:12.375rem;
 height:16.3rem;
+`
+export const MovieDetails= styled.div`
+display:flex;
+width:100%;
+height:40rem;
+justify-content:center;
 `

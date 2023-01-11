@@ -8,7 +8,7 @@ export function Header() {
         <Link to={`/`}>
           <img src={logo} alt="logo" />
         </Link>
-        <Link to={`/login`}>
+        <Link className="login-btn" to={`/login`}>
           Entrar</Link>
       </Content>
     </Container>

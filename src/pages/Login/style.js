@@ -29,6 +29,8 @@ input{
   
 }
 button{
+  margin:2rem auto;
+  
   width:10.5rem;
   height:2.875rem;
   font-size: 1.5rem;
