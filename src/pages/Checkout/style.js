@@ -8,6 +8,17 @@ gap:10rem;
 padding: 5rem 0 0 0 ;
 justify-content:center;
 `
+export const TotalContent = styled.div`
+width:26.3rem;
+max-height:31rem;
+display:flex;
+flex-direction:column;
+border: 2px solid rgba(78,78,78, 0.5);
+border-radius:2px;
+align-items:center;
+justify-content:space-between;
+gap:0.5rem;
+`
 export const ContentCheckoutList = styled.div`
 align-self:flex-start;
 width: 46.8rem;
@@ -27,14 +38,19 @@ export const TotalList = styled.section`
 display:flex;
 flex-direction:column;
 align-items:center;
-justify-content:center;
-width:26.3rem;
-max-height:31rem;
-border: 2px solid rgba(78,78,78, 0.5);
-border-radius:2px;
+justify-content:space-around;
+width:100%;
+height:100%;
 gap:0.5rem;
+position:relative;
 ${Title}{
-  position: relative;
+  position:absolute;
+  top:5%;
+
+}
+.totalCost{
+  position:absolute;
+  bottom:4%;
 }
 `
 export const ListItens = styled.ul`
@@ -49,8 +65,11 @@ li{
   width:100%;
   height:auto;
   list-style: none;
+  
   span{
-    font-size:1.5rem;
+    font-size:1rem;
+    font-weight:500;
+    margin-left:0.4rem;
   }
 }
 `
@@ -61,5 +80,5 @@ color: var(--white);
 font-size:2rem;
 width:19.8rem;
 height:2.875rem;
-margin-top:1rem;
+margin-bottom:1.5rem;
 `
