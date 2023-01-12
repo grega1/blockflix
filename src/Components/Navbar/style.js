@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const Container = styled.header`
 background:var(--black);
@@ -10,8 +11,12 @@ export const Content = styled.div`
   display:flex;
   align-items: center;
   justify-content: space-between;
+  div{
+    display: flex;
+    gap:1.5rem;
+  }
 
-  button{
+   button{
     font-size: 1rem;
     color: #fff;
     background:transparent;    
